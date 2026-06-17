@@ -1,0 +1,239 @@
+/* src/index.css — HuertoConecta Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --verde-oscuro:  #2D6A4F;
+  --verde-medio:   #40916C;
+  --verde-claro:   #74C69D;
+  --verde-palido:  #D8F3DC;
+  --beige:         #F5F0E8;
+  --beige-oscuro:  #E8DFD0;
+  --blanco:        #FFFFFF;
+  --gris-texto:    #3D3D3D;
+  --gris-suave:    #888888;
+  --rojo-alerta:   #E63946;
+  --naranja:       #F4A261;
+  --sombra:        0 2px 12px rgba(45,106,79,0.10);
+  --radio:         14px;
+  --radio-sm:      8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--beige);
+  color: var(--gris-texto);
+  min-height: 100vh;
+}
+
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+
+.main-content {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 80px; /* espacio para navbar inferior en mobile */
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.card-verde {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+}
+.card-palido { background: var(--verde-palido); }
+
+/* ---- Botones ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radio-sm);
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.btn-primary { background: var(--verde-oscuro); color: var(--blanco); }
+.btn-primary:hover { background: var(--verde-medio); }
+.btn-secondary { background: var(--verde-palido); color: var(--verde-oscuro); }
+.btn-secondary:hover { background: var(--verde-claro); }
+.btn-danger { background: var(--rojo-alerta); color: var(--blanco); }
+.btn-full { width: 100%; }
+.btn-sm { padding: 6px 12px; font-size: 0.85rem; }
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.badge-verde  { background: var(--verde-palido); color: var(--verde-oscuro); }
+.badge-rojo   { background: #FFE0E0; color: var(--rojo-alerta); }
+.badge-naranja{ background: #FFF0DC; color: #C77B00; }
+
+/* ---- Formularios ---- */
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-weight: 700; margin-bottom: 4px; font-size: 0.9rem; color: var(--verde-oscuro); }
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--beige-oscuro);
+  border-radius: var(--radio-sm);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  background: var(--blanco);
+  transition: border 0.15s;
+}
+.form-control:focus { outline: none; border-color: var(--verde-medio); }
+
+/* ---- Página header ---- */
+.page-header { margin-bottom: 18px; }
+.page-title { font-size: 1.5rem; font-weight: 800; color: var(--verde-oscuro); }
+.page-subtitle { color: var(--gris-suave); font-size: 0.9rem; margin-top: 2px; }
+
+/* ---- Stat cards ---- */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.stat-card {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 14px;
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+.stat-number { font-size: 2rem; font-weight: 800; color: var(--verde-oscuro); line-height: 1; }
+.stat-label  { font-size: 0.78rem; color: var(--gris-suave); margin-top: 4px; font-weight: 600; }
+
+/* ---- Lista de turnos ---- */
+.turno-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radio-sm);
+  background: var(--beige);
+  margin-bottom: 8px;
+}
+.turno-parcela {
+  background: var(--verde-oscuro);
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.turno-info { flex: 1; }
+.turno-nombre { font-weight: 700; font-size: 0.95rem; }
+.turno-tel { font-size: 0.8rem; color: var(--gris-suave); }
+
+/* ---- Navbar bottom ---- */
+.navbar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--blanco);
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+  display: flex;
+  z-index: 100;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px 6px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--gris-suave);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  transition: color 0.15s;
+  gap: 3px;
+}
+.nav-item.active { color: var(--verde-oscuro); }
+.nav-icon { font-size: 1.3rem; }
+
+/* ---- Top bar ---- */
+.topbar {
+  background: var(--verde-oscuro);
+  color: white;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar-logo { font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.topbar-user { font-size: 0.85rem; opacity: 0.85; }
+
+/* ---- Login ---- */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--verde-oscuro);
+  padding: 24px;
+}
+.login-card {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+.login-logo { text-align: center; margin-bottom: 24px; }
+.login-logo span { font-size: 3rem; }
+.login-logo h1 { font-size: 1.6rem; font-weight: 800; color: var(--verde-oscuro); margin-top: 4px; }
+.login-logo p  { color: var(--gris-suave); font-size: 0.85rem; }
+
+/* ---- Loading ---- */
+.loading { text-align: center; padding: 40px; color: var(--gris-suave); font-weight: 600; }
+.empty   { text-align: center; padding: 30px; color: var(--gris-suave); }
+
+/* ---- Modal overlay ---- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex; align-items: flex-end; justify-content: center;
+  z-index: 200;
+}
+.modal-sheet {
+  background: var(--blanco);
+  border-radius: 20px 20px 0 0;
+  padding: 24px 20px 36px;
+  width: 100%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+}
+.modal-title { font-size: 1.2rem; font-weight: 800; color: var(--verde-oscuro); margin-bottom: 16px; }
+
+/* ---- Sección title ---- */
+.section-title {
+  font-size: 1rem; font-weight: 800; color: var(--verde-oscuro);
+  margin: 16px 0 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ---- Progress bar ---- */
+.progress-bar { background: var(--beige-oscuro); border-radius: 99px; height: 8px; overflow: hidden; margin-top: 4px; }
+.progress-fill { height: 100%; background: var(--verde-medio); border-radius: 99px; transition: width 0.3s; }
